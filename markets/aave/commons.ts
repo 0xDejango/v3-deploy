@@ -7,13 +7,10 @@ import {
   ePolygonNetwork,
   TransferStrategy,
   eBaseNetwork,
+  eMonadNetwork,
 } from "./../../helpers/types";
 import { ZERO_ADDRESS } from "../../helpers/constants";
-import {
-  ICommonConfiguration,
-  eEthereumNetwork,
-  eArbitrumNetwork,
-} from "../../helpers/types";
+import { ICommonConfiguration, eEthereumNetwork, eArbitrumNetwork } from "../../helpers/types";
 import {
   rateStrategyStableOne,
   rateStrategyStableTwo,
@@ -59,9 +56,10 @@ export const CommonsConfig: ICommonConfiguration = {
   ReserveFactorTreasuryAddress: {
     [eEthereumNetwork.kovan]: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
     [eEthereumNetwork.main]: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
-    [eArbitrumNetwork.arbitrumTestnet]:
-      "0xeC67987831C4278160D8e652d3edb0Fc45B3766d",
+    [eArbitrumNetwork.arbitrumTestnet]: "0xeC67987831C4278160D8e652d3edb0Fc45B3766d",
     [eEthereumNetwork.rinkeby]: ZERO_ADDRESS,
+
+    [eMonadNetwork.testnet]: "0x298Fb1BC4FdE509c781351F1047Fe659579feB91",
   },
   FallbackOracle: {
     [eEthereumNetwork.kovan]: ZERO_ADDRESS,
@@ -69,6 +67,8 @@ export const CommonsConfig: ICommonConfiguration = {
     [eArbitrumNetwork.arbitrum]: ZERO_ADDRESS,
     [eArbitrumNetwork.arbitrumTestnet]: ZERO_ADDRESS,
     [eEthereumNetwork.rinkeby]: ZERO_ADDRESS,
+
+    [eMonadNetwork.testnet]: ZERO_ADDRESS,
   },
   ReservesConfig: {},
   IncentivesConfig: {
@@ -161,6 +161,9 @@ export const CommonsConfig: ICommonConfiguration = {
     [eOptimismNetwork.testnet]: true,
     [eBaseNetwork.base]: true,
     [eBaseNetwork.baseGoerli]: true,
+    [eMonadNetwork.main]: true,
+
+    [eMonadNetwork.testnet]: true,
   },
   ParaswapRegistry: {
     [eEthereumNetwork.main]: "0xa68bEA62Dc4034A689AA0F58A76681433caCa663",

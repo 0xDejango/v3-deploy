@@ -1,10 +1,5 @@
-import { eOptimismNetwork } from "./../../helpers/types";
 import { ZERO_ADDRESS } from "../../helpers";
-import {
-  IAaveConfiguration,
-  eEthereumNetwork,
-  eArbitrumNetwork,
-} from "../../helpers/types";
+import { IAaveConfiguration, eEthereumNetwork } from "../../helpers/types";
 
 import { CommonsConfig } from "./commons";
 import {

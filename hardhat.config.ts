@@ -15,6 +15,7 @@ import {
   eOptimismNetwork,
   ePolygonNetwork,
   eBaseNetwork,
+  eMonadNetwork,
 } from "./helpers/types";
 import { DEFAULT_NAMED_ACCOUNTS } from "./helpers/constants";
 
@@ -71,62 +72,27 @@ export default {
     kovan: getCommonNetworkConfig(eEthereumNetwork.kovan, 42),
     rinkeby: getCommonNetworkConfig(eEthereumNetwork.rinkeby, 4),
     ropsten: getCommonNetworkConfig(eEthereumNetwork.ropsten, 3),
-    [ePolygonNetwork.polygon]: getCommonNetworkConfig(
-      ePolygonNetwork.polygon,
-      137
-    ),
-    [ePolygonNetwork.mumbai]: getCommonNetworkConfig(
-      ePolygonNetwork.mumbai,
-      80001
-    ),
+    [ePolygonNetwork.polygon]: getCommonNetworkConfig(ePolygonNetwork.polygon, 137),
+    [ePolygonNetwork.mumbai]: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
     arbitrum: getCommonNetworkConfig(eArbitrumNetwork.arbitrum, 42161),
     [eArbitrumNetwork.arbitrumTestnet]: getCommonNetworkConfig(
       eArbitrumNetwork.arbitrumTestnet,
       421611
     ),
-    [eHarmonyNetwork.main]: getCommonNetworkConfig(
-      eHarmonyNetwork.main,
-      1666600000
-    ),
-    [eHarmonyNetwork.testnet]: getCommonNetworkConfig(
-      eHarmonyNetwork.testnet,
-      1666700000
-    ),
-    [eAvalancheNetwork.avalanche]: getCommonNetworkConfig(
-      eAvalancheNetwork.avalanche,
-      43114
-    ),
-    [eAvalancheNetwork.fuji]: getCommonNetworkConfig(
-      eAvalancheNetwork.fuji,
-      43113
-    ),
+    [eHarmonyNetwork.main]: getCommonNetworkConfig(eHarmonyNetwork.main, 1666600000),
+    [eHarmonyNetwork.testnet]: getCommonNetworkConfig(eHarmonyNetwork.testnet, 1666700000),
+    [eAvalancheNetwork.avalanche]: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
+    [eAvalancheNetwork.fuji]: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     [eFantomNetwork.main]: getCommonNetworkConfig(eFantomNetwork.main, 250),
-    [eFantomNetwork.testnet]: getCommonNetworkConfig(
-      eFantomNetwork.testnet,
-      4002
-    ),
-    [eOptimismNetwork.testnet]: getCommonNetworkConfig(
-      eOptimismNetwork.testnet,
-      420
-    ),
+    [eFantomNetwork.testnet]: getCommonNetworkConfig(eFantomNetwork.testnet, 4002),
+    [eOptimismNetwork.testnet]: getCommonNetworkConfig(eOptimismNetwork.testnet, 420),
     [eOptimismNetwork.main]: getCommonNetworkConfig(eOptimismNetwork.main, 10),
-    [eEthereumNetwork.goerli]: getCommonNetworkConfig(
-      eEthereumNetwork.goerli,
-      5
-    ),
-    [eEthereumNetwork.sepolia]: getCommonNetworkConfig(
-      eEthereumNetwork.sepolia,
-      11155111
-    ),
-    [eArbitrumNetwork.goerliNitro]: getCommonNetworkConfig(
-      eArbitrumNetwork.goerliNitro,
-      421613
-    ),
+    [eEthereumNetwork.goerli]: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
+    [eEthereumNetwork.sepolia]: getCommonNetworkConfig(eEthereumNetwork.sepolia, 11155111),
+    [eArbitrumNetwork.goerliNitro]: getCommonNetworkConfig(eArbitrumNetwork.goerliNitro, 421613),
     [eBaseNetwork.base]: getCommonNetworkConfig(eBaseNetwork.base, 8453),
-    [eBaseNetwork.baseGoerli]: getCommonNetworkConfig(
-      eBaseNetwork.baseGoerli,
-      84531
-    ),
+    [eBaseNetwork.baseGoerli]: getCommonNetworkConfig(eBaseNetwork.baseGoerli, 84531),
+    [eMonadNetwork.testnet]: getCommonNetworkConfig(eMonadNetwork.testnet, 10143),
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -203,9 +169,7 @@ export default {
       "@aave/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol",
     ],
   },
-  deterministicDeployment: DETERMINISTIC_DEPLOYMENT
-    ? DETERMINISTIC_FACTORIES
-    : undefined,
+  deterministicDeployment: DETERMINISTIC_DEPLOYMENT ? DETERMINISTIC_FACTORIES : undefined,
   etherscan: {
     apiKey: ETHERSCAN_KEY,
     customChains: [

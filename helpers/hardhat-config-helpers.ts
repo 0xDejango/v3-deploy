@@ -12,6 +12,7 @@ import {
   eFantomNetwork,
   eOptimismNetwork,
   eBaseNetwork,
+  eMonadNetwork,
 } from "./types";
 
 require("dotenv").config();
@@ -50,6 +51,10 @@ export const getAlchemyKey = (net: eNetwork) => {
       return process.env.SEPOLIA_ALCHEMY_KEY || ALCHEMY_KEY;
     case eBaseNetwork.base:
       return process.env.BASE_ALCHEMY_KEY || ALCHEMY_KEY;
+    case eMonadNetwork.main:
+      return process.env.MONAD_ALCHEMY_KEY || ALCHEMY_KEY;
+    case eMonadNetwork.testnet:
+      return process.env.MONAD_TESTNET_ALCHEMY_KEY || ALCHEMY_KEY;
     default:
       return ALCHEMY_KEY;
   }
@@ -95,8 +100,9 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   )}`,
   [eArbitrumNetwork.goerliNitro]: `https://goerli-rollup.arbitrum.io/rpc`,
   [eBaseNetwork.baseGoerli]: `https://goerli.base.org`,
-  [eBaseNetwork.base]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(
-    eBaseNetwork.base
+  [eBaseNetwork.base]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(eBaseNetwork.base)}`,
+  [eMonadNetwork.testnet]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(
+    eMonadNetwork.testnet
   )}`,
 };
 
@@ -109,6 +115,9 @@ export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
   [eFantomNetwork.main]: true,
   [eOptimismNetwork.main]: true,
   [eBaseNetwork.base]: true,
+
+  // TODO: Not sure if this is an issue. Chainlink is live there though. So proxy agg contracts are "real"
+  [eMonadNetwork.testnet]: true,
 };
 
 const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {
@@ -116,9 +125,7 @@ const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {
   [eBaseNetwork.baseGoerli]: 8000000000,
 };
 
-export const buildForkConfig = ():
-  | HardhatNetworkForkingUserConfig
-  | undefined => {
+export const buildForkConfig = (): HardhatNetworkForkingUserConfig | undefined => {
   let forkMode: HardhatNetworkForkingUserConfig | undefined;
   if (FORK && NETWORKS_RPC_URL[FORK]) {
     forkMode = {
@@ -141,10 +148,7 @@ export const loadTasks = (taskFolders: string[]): void =>
       });
   });
 
-export const getCommonNetworkConfig = (
-  networkName: eNetwork,
-  chainId?: number
-) => ({
+export const getCommonNetworkConfig = (networkName: eNetwork, chainId?: number) => ({
   url: NETWORKS_RPC_URL[networkName] || "",
   blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
   chainId,

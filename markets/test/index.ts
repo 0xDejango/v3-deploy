@@ -4,7 +4,12 @@ import {
   rateStrategyVolatileOne,
 } from "./rateStrategies";
 import { ZERO_ADDRESS } from "../../helpers";
-import { IAaveConfiguration, eEthereumNetwork, eArbitrumNetwork } from "../../helpers/types";
+import {
+  IAaveConfiguration,
+  eEthereumNetwork,
+  eArbitrumNetwork,
+  eMonadNetwork,
+} from "../../helpers/types";
 
 import { CommonsConfig } from "./commons";
 import {
@@ -59,6 +64,12 @@ export const AaveMarket: IAaveConfiguration = {
     //   WETH: ZERO_ADDRESS,
     //   LINK: ZERO_ADDRESS,
     // },
+    [eMonadNetwork.testnet]: {
+      USDC: "0x70BB0758a38ae43418ffcEd9A25273dd4e804D15",
+      WETH: "0x0c76859E85727683Eeba0C70Bc2e0F5781337818",
+      WBTC: "0x2Cd9D7E85494F68F5aF08EF96d6FD5e8F71B4d31",
+      USDT: "0x14eE6bE30A91989851Dc23203E41C804D4D71441",
+    },
   },
 };
 
