@@ -101,7 +101,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eArbitrumNetwork.goerliNitro]: `https://goerli-rollup.arbitrum.io/rpc`,
   [eBaseNetwork.baseGoerli]: `https://goerli.base.org`,
   [eBaseNetwork.base]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(eBaseNetwork.base)}`,
-  [eMonadNetwork.testnet]: `https://base-mainnet.g.alchemy.com/v2/${getAlchemyKey(
+  [eMonadNetwork.testnet]: `https://monad-testnet.g.alchemy.com/v2/${getAlchemyKey(
     eMonadNetwork.testnet
   )}`,
 };

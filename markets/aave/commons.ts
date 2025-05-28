@@ -59,7 +59,8 @@ export const CommonsConfig: ICommonConfiguration = {
     [eArbitrumNetwork.arbitrumTestnet]: "0xeC67987831C4278160D8e652d3edb0Fc45B3766d",
     [eEthereumNetwork.rinkeby]: ZERO_ADDRESS,
 
-    [eMonadNetwork.testnet]: "0x298Fb1BC4FdE509c781351F1047Fe659579feB91",
+    // [eMonadNetwork.testnet]: "0x298Fb1BC4FdE509c781351F1047Fe659579feB91",
+    [eMonadNetwork.testnet]: ZERO_ADDRESS,
   },
   FallbackOracle: {
     [eEthereumNetwork.kovan]: ZERO_ADDRESS,
