@@ -7,5 +7,7 @@
   "ACLManager:Monad:aave-v3-core@1.19.3": 1748463986,
   "Oracles:Monad:aave-v3-core@1.19.3": 1748463994,
   "InitOracles:Monad:aave-v3-core@1.19.3": 1748463999,
-  "PoolInitalization:Monad:aave-v3-core@1.19.3": 1748464037
+  "PoolInitalization:Monad:aave-v3-core@1.19.3": 1748464037,
+  "Incentives:Monad:aave-v3-periphery@2.5.2": 1748623803,
+  "TokenImplementations:Monad:aave-v3-core@1.19.3": 1748623858
 }
